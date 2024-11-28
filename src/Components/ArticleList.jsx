@@ -1,36 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-
-const articles = [
-    {
-        "id": 1,
-        "title": "Introduction à React",
-        "content": "React est une bibliothèque JavaScript pour construire des interfaces utilisateur.",
-        "date": "2024-11-01",
-        "likes": 5
-    },
-    {
-        "id": 2,
-        "title": "Pourquoi utiliser React ?",
-        "content": "React permet de créer des applications web performantes et évolutives.",
-        "date": "2024-11-02",
-        "likes": 8
-    }
-]
 function ArticleList() {
+    const [data, setData] = useState([]); 
+
+    useEffect( () => {
+       
+          axios
+            .get('/data/articles.json')
+            .then(response => setData(response.data))
+            .catch(error => console.error("Error fetching articles:", error));
+    }, []);
+
     return (
         <div>
+            <h1>Article List</h1>
             <ul>
-                { 
-                    articles.map((article) => (
-                        <li key={article.id}>
-                            {article.title}
-                        </li>
+                
+                {data.length > 0 ? (
+                    data.map((article, index) => (
+                        <li key={index}>{article.title}</li>
                     ))
-                }
+                ) : (
+                    <li>Loading...</li> 
+                )}
             </ul>
         </div>
-    )
+    );
 }
 
-export default ArticleList
+export default ArticleList;
