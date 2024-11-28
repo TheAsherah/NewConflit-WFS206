@@ -1,0 +1,36 @@
+import React from 'react'
+
+
+const articles = [
+    {
+        "id": 1,
+        "title": "Introduction à React",
+        "content": "React est une bibliothèque JavaScript pour construire des interfaces utilisateur.",
+        "date": "2024-11-01",
+        "likes": 5
+    },
+    {
+        "id": 2,
+        "title": "Pourquoi utiliser React ?",
+        "content": "React permet de créer des applications web performantes et évolutives.",
+        "date": "2024-11-02",
+        "likes": 8
+    }
+]
+function ArticleList() {
+    return (
+        <div>
+            <ul>
+                { 
+                    articles.map((article) => (
+                        <li key={article.id}>
+                            {article.title}
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    )
+}
+
+export default ArticleList
