@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ArticleItem({ article }) {
+function ArticleItem({ article, onLike }) {
   // État pour gérer l'affichage complet ou partiel du contenu
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -12,11 +12,14 @@ function ArticleItem({ article }) {
   return (
     <div>
       <h2>{article.title}</h2>
-      <p>{isExpanded ? article.content : ${article.content.substring(0, 100)}...}</p> {/* Correct string interpolation */}
+      <p>{article.content.substring(0, 100)}...</p>
       <p>Date : {article.date}</p>
       <button onClick={toggleContent}>
         {isExpanded ? 'Lire moins' : 'Lire la suite'}
       </button>
+      <p>{article.likes} J'aime</p>
+      <button onClick={() => onLike(article.id)}>J'aime</button>
+
     </div>
   );
 }
