@@ -1,6 +1,23 @@
 import React from 'react'
 
 function CommentForm() {
+    const [comments, setComments] = useState([]); // Array to store submitted comments
+    const [formData, setFormData] = useState({ author: '', content: '' }); // State for form input values
+  
+    const handleSubmit = (e) => {
+      e.preventDefault(); 
+  
+      if (formData.author && formData.content) {
+        setComments([...comments, formData]);
+
+        setFormData({ author: '', content: '' });
+      }
+    };
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value }); // Update form data dynamically
+    };
   return (
     <div>
         <form >
@@ -27,6 +44,16 @@ function CommentForm() {
             </button>
 
         </form>
+        <div>
+        <h3>Commentaires :</h3>
+        <ul>
+          {comments.map((comment, index) => (
+            <li key={index}>
+              <strong>{comment.author}:</strong> {comment.content}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
