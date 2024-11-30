@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CommentList from './CommentList';
 
 function ArticleItem({ article, onLike }) {
   // État pour gérer l'affichage complet ou partiel du contenu
@@ -57,20 +58,8 @@ function ArticleItem({ article, onLike }) {
       </button>
 
       {/* Affichage des commentaires */}
-      <div>
-        <h3>Commentaires :</h3>
-        {comments.length > 0 ? (
-          <ul>
-            {comments.map((comment, index) => (
-              <li key={index}>
-                <strong>{comment.name} :</strong> {comment.comment}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>Aucun commentaire pour le moment.</p>
-        )}
-      </div>
+      <CommentList comments={comments}/>
+
 
       {/* Formulaire pour ajouter un commentaire */}
       <form onSubmit={handleSubmit}>
