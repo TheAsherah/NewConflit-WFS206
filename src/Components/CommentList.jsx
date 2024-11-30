@@ -4,6 +4,7 @@ const CommentList = ({ comments, deleteComment }) => {
   return (
     <div>
       <h3>Commentaires :</h3>
+      <p>Nombre total de commentaires : {comments.length}</p> {/* Affiche le nombre total de commentaires */}
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment, index) => (
