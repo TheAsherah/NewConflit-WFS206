@@ -1,0 +1,17 @@
+
+[
+    {
+    "id": 1,
+    "articleId": 1,
+    "name": "Alice",
+    "comment": "Très utile, merci pour cet article !",
+    "date": "2024-11-01"
+    },
+    {
+    "id": 2,
+    "articleId": 2,
+    "name": "Bob",
+    "comment": "React est vraiment génial !",
+    "date": "2024-11-02"
+    }
+   ]
