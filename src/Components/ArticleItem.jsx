@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommentList from './CommentList';
+
 
 function ArticleItem({ article, onLike }) {
   // État pour gérer l'affichage complet ou partiel du contenu
@@ -56,9 +56,6 @@ function ArticleItem({ article, onLike }) {
       <button onClick={toggleContent}>
         {isExpanded ? 'Réduire' : 'Lire la suite'}
       </button>
-
-      {/* Affichage des commentaires */}
-      <CommentList comments={comments}/>
 
 
       {/* Formulaire pour ajouter un commentaire */}
