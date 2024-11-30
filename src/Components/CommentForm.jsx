@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function CommentForm() {
     const [comments, setComments] = useState([]); // Array to store submitted comments
@@ -41,6 +41,9 @@ function CommentForm() {
             </div>
             <button type="submit">
                 Envoyer le commentaire
+            </button>
+            <button type="reset">
+                Réinitialiser
             </button>
 
         </form>
