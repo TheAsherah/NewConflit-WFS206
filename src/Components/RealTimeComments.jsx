@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CommentList from "./CommentList"; // Assume that this component exists to display comments.
+import { CommentsContext } from "../context/CommentsContext"; // Assuming CommentsContext is defined in your app
 
 const RealTimeComments = ({ initialComments }) => {
-  const [comments, setComments] = useState(initialComments || []);
+  const { comments, setComments } = useContext(CommentsContext); // Access global state for comments
 
   useEffect(() => {
     // Simulate real-time updates with a WebSocket-like approach
     const interval = setInterval(() => {
       const newComment = generateRandomComment(); // Simulates receiving a new comment
-      setComments((prevComments) => [...prevComments, newComment]);
+      setComments((prevComments) => [...prevComments, newComment]); // Update global state
     }, 5000); // Adds a new comment every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, []);
+  }, [setComments]);
 
   const generateRandomComment = () => {
     const randomNames = ["Alice", "Bob", "Charlie", "Dana"];
