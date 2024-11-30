@@ -1,0 +1,32 @@
+.container {
+    border-radius: 20px ;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    box-shadow: 4px 4px 8px black;
+}
+
+.headreComment {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+
+}
+.btn {
+    padding: .4rem 1rem;
+    background-color: green;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px green;
+    border: none;
+    margin: .4rem 0;
+}
+
+.paragraph {
+    color: rgb(53, 53, 53);
+}

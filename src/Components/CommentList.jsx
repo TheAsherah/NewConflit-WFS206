@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { CommentsContext } from "../context/CommentsContext"; // Importing the context
+import './comment.css'
 
 const CommentList = ({ deleteComment, markCommentAsOld, addNewComment }) => {
   const { comments } = useContext(CommentsContext); // Using global state
@@ -31,9 +32,9 @@ const CommentList = ({ deleteComment, markCommentAsOld, addNewComment }) => {
   }, [comments, markCommentAsOld]);
 
   return (
-    <div>
-      <h3>Commentaires :</h3>
-      <p>Nombre total de commentaires : {comments.length}</p>
+    <div className='container'>
+      <h3 className='headreComment'>Commentaires :</h3>
+      <p>Nombre total de commentaires : {comments.length}</p> {/* Affiche le nombre total de commentaires */}
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment, index) => (
@@ -48,6 +49,7 @@ const CommentList = ({ deleteComment, markCommentAsOld, addNewComment }) => {
               }}
             >
               <strong>{comment.author}:</strong> {comment.content}
+              <button className='btn' onClick={() => deleteComment(index)}>Supprimer</button>
               <button
                 onClick={() => deleteComment(index)}
                 style={{
@@ -66,7 +68,7 @@ const CommentList = ({ deleteComment, markCommentAsOld, addNewComment }) => {
           ))}
         </ul>
       ) : (
-        <p>Aucun commentaire pour le moment.</p>
+        <p className='paragraph'>Aucun commentaire pour le moment.</p>
       )}
     </div>
   );
