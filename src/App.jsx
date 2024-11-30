@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ArticleList from "./Components/ArticleList";
 import CommentForm from "./Components/CommentForm";
-import CommentList from "./Components/CommentList"; 
+import CommentList from "./Components/CommentList";
+import RealTimeComments from "./Components/RealTimeComments";
 
 const App = () => {
   const [comments, setComments] = useState([]);
@@ -42,8 +43,10 @@ const App = () => {
 
   return (
     <div>
+      <h1>Blog Interactif</h1>
       <ArticleList />
       <CommentForm addComment={addComment} />
+      <RealTimeComments initialComments={comments} />
       <CommentList
         comments={comments}
         deleteComment={deleteComment}
