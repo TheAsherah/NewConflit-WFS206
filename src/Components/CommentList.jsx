@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CommentList({ comments }) {
+const CommentList = ({ comments, deleteComment }) => {
   return (
     <div>
       <h3>Commentaires :</h3>
@@ -9,6 +9,7 @@ function CommentList({ comments }) {
           {comments.map((comment, index) => (
             <li key={index}>
               <strong>{comment.author}:</strong> {comment.content}
+              <button onClick={() => deleteComment(index)}>Supprimer</button>
             </li>
           ))}
         </ul>
@@ -17,6 +18,6 @@ function CommentList({ comments }) {
       )}
     </div>
   );
-}
+};
 
 export default CommentList;

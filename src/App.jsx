@@ -11,13 +11,20 @@ const App = () => {
       .then((data) => setComments(data))
       .catch((error) => console.error("Erreur de chargement :", error));
   }, []);
+  
+  const deleteComment = (index) => {
+    setComments((prevComments) => prevComments.filter((_, i) => i !== index));
+  };
+
+  const addComment = (newComment) => {
+    setComments((prevComments) => [...prevComments, newComment]);
+  };
 
   return (
     <div>
       <ArticleList />
-      <CommentForm />
-      { }
-      <CommentList comments={comments} />
+      <CommentForm addComment={addComment} />
+      <CommentList comments={comments} deleteComment={deleteComment} />
     </div>
   );
 };
