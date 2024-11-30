@@ -1,21 +1,23 @@
 import React from 'react';
+import './comment.css'
+
 
 const CommentList = ({ comments, deleteComment }) => {
   return (
-    <div>
-      <h3>Commentaires :</h3>
+    <div className='container'>
+      <h3 className='headreComment'>Commentaires :</h3>
       <p>Nombre total de commentaires : {comments.length}</p> {/* Affiche le nombre total de commentaires */}
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment, index) => (
             <li key={index}>
               <strong>{comment.author}:</strong> {comment.content}
-              <button onClick={() => deleteComment(index)}>Supprimer</button>
+              <button className='btn' onClick={() => deleteComment(index)}>Supprimer</button>
             </li>
           ))}
         </ul>
       ) : (
-        <p>Aucun commentaire pour le moment.</p>
+        <p className='paragraph'>Aucun commentaire pour le moment.</p>
       )}
     </div>
   );
